@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .highlight{
+        background-color: yellow;
+    }
+    .highlight2{
+        background-color: yellowgreen;
+    }
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+
+           // $("ol li").odd().addClass("highlight2");
+            //has filter its true or dfalse ->
+           $("ol li").has("ol").addClass("highlight2");
+        })
+ </script>
+
+        </head>
+<body>
+Some things to do during covid
+<ol>
+    <li> Stay 6 Feet away</li>
+    <li> Go for walks </li>
+    <li> Wear a mask </li>
+    <li> Wash Hands
+        <ol>
+            <li> With Soap</li>
+            <li> 20 seconds</li>
+        </ol>
+    </li>
+</ol>
+<ol>
+    <li> Stay 6 Feet away</li>
+    <li> Go for walks</li>
+    <li> Wear a mask</li>
+    <li> Wash Hands</li>
+</ol>
+
+</body>
+</html>

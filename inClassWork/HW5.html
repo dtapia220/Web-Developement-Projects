@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW5</title>
+</head>
+<script>
+    let dice = [
+        { 'img': 'Die1.PNG', 'value': 1 },
+        { 'img': 'Die2.PNG', 'value': 2 },
+        { 'img': 'Die3.PNG', 'value': 3 },
+        { 'img': 'Die4.PNG', 'value': 4 },
+        { 'img': 'Die5.PNG', 'value': 5 },
+        { 'img': 'Die6.PNG', 'value': 6 }
+    ];
+    let uInput = {};
+    uInput.tWins = 0;
+    let p = 0;
+
+    function getUserBet() {
+        let getObj = document.getElementById("bet");
+        uInput.error = "";
+        uInput.guess = getObj.value;
+        uInput.gotError  = false;
+        if ( uInput.guess === "" || isNaN(uInput.guess) ||
+            uInput.guess < 1 || uInput.guess > 1000 ) {
+            uInput.error = ` Bad Bet ${uInput.guess}`;
+            uInput.gotError  = true;
+        }
+        return uInput;
+    }
+
+    function startGame() {
+        let resArea = document.getElementById("dieResults");
+        getUserBet(); // sets the global Variable uInput
+        if ( uInput.gotError){
+            resArea.innerHTML= `<span style='color:red'> ${uInput.error} </span>`
+
+        } else {
+            let die1 = document.getElementById("die1");
+            let die2 = document.getElementById("die2");
+
+            let tWins = updateDie(die1, die2, resArea);
+        }
+    }
+    function resetGame(){
+        alert(`Restarting Game`);
+        let resArea = document.getElementById("dieResults");
+        let p = document.getElementById("pTotal");
+        let die1 = document.getElementById("die1");
+        let die2 = document.getElementById("die2");
+        let die3 = document.getElementById("die3");
+        let die4 = document.getElementById("die4");
+        let po = document.getElementById("point");
+        let ct = document.getElementById("ct");
+
+        let num = 1000;
+        ct.innerHTML = `0`;
+        po.innerHTML = ``;
+        die1.innerHTML = `Die1`;
+        die2.innerHTML = `Die2`;
+        die3.innerHTML = `Die3`;
+        die4.innerHTML = `Die4`;
+        p.innerHTML = num;
+        resArea.innerHTML = `Die Results`;
+    }
+
+
+    function startGame2() {
+        let resArea = document.getElementById("dieResults");
+        getUserBet(); // sets the global Variable uInput
+        if ( uInput.gotError){
+            resArea.innerHTML= `<span style='color:red'> ${uInput.error} </span>`
+        } else {
+            let die3 = document.getElementById("die3");
+            let die4 = document.getElementById("die4");
+
+            let tWins = updateDie2(die3, die4, resArea);
+        }
+    }
+
+    function getRoll( ) {
+        let r1 = Math.floor( Math.random() * 6 );
+        return r1;
+    }
+
+    function betLose() {
+        let res = document.getElementById("dieResults");
+        let p = document.getElementById("pTotal");
+        let t = Number(p.innerText) - uInput.guess;
+        p.innerHTML = t;
+        if (t <= 0 ){
+            res.innerHTML = `<img src="imgs/busted.jpg" height="300" width="300"/>`;
+            alert(`You Lost`);
+        }
+
+
+    }
+
+
+    function betWin() {
+        let p = document.getElementById("pTotal");
+        let t = Number(p.innerText) + Number(uInput.guess);
+        p.innerHTML = t;
+        alert(`You Won`);
+    }
+
+    function updateDie( die1, die2, resArea ) {
+        let r1 = getRoll();
+        let dice1 = dice[r1];
+        let point = document.getElementById("point");
+
+        let r2 = getRoll();
+        let dice2 = dice[r2];
+        let total = r1 + r2 + 2;
+        p = total;
+
+        die1.innerHTML = `<img src='imgs/${dice1.img}' height='50px' width='50px'>`
+        die2.innerHTML = `<img src='imgs/${dice2.img}' height='50px' width='50px'>`
+        point.innerHTML = total;
+
+        // This is game logic ... method updates display AND dice logic
+        if (total === 7 || total === 12) {
+            resArea.innerHTML = `<span style='color:red'> Loser <img src="imgs/loser.PNG" height="101" width="81"/> </span>`
+            betLose();
+        } else if (total === 2 || total === 11) {
+            resArea.innerHTML = `<span style='color:green'> Winner <img src="imgs/win.jpg" height="112" width="112"/></span>`
+            betWin();
+        }
+    }
+        function updateDie2( die1, die2, resArea ) {
+            let r1 = getRoll();
+            let dice1 = dice[r1];
+            let r2 = getRoll();
+            let dice2 = dice[r2];
+            let total = r1 + r2 + 2;
+            let c = document.getElementById("ct");
+            c.innerHTML = total;
+            die1.innerHTML = `<img src='imgs/${dice1.img}' height='50px' width='50px'>`
+            die2.innerHTML = `<img src='imgs/${dice2.img}' height='50px' width='50px'>`
+
+
+            if (total === p) {
+                resArea.innerHTML = `<span style='color:green'> Winner <img src="imgs/win.jpg" height="112" width="112"/></span>`
+                betWin();
+            } else if (total === 2 || total === 11)
+            {
+                resArea.innerHTML = `<span style='color:red'> Loser <img src="imgs/loser.PNG" height="101" width="81"/> </span>`
+                betLose();
+            }
+
+        }
+
+
+    </script>
+
+<body>
+<h2> <div id="purse"> Purse: <span id="pTotal">1000</span></div> </h2>
+<br>
+    <div id="betArea"> Bet: <input type="number" id="bet" ></div>
+<br>
+<div><button id="startButton" onClick="startGame()"> Roll Dice </button></div>
+<br>
+<div id="die1"> Die1 </div>
+<div id="die2"> Die2 </div>
+<br>
+
+    <div id = "pMake"> Point to make: <span id="point"> 0 </span> </div>
+    <br>
+    <div><button id="startButton2" onClick="startGame2()"> Roll Dice </button></div>
+   <br>
+    <div id = "count"> Dice Total: <span id="ct">  </span> </div>
+    <div id="die3"> Die3 </div>
+    <div id="die4"> Die4 </div>
+    <br>
+<div id="dieResults"> Die Results </div>
+<br>
+<div><button id="reset" onClick="resetGame()"> Reset </button></div>
+
+
+</body>
+</html>

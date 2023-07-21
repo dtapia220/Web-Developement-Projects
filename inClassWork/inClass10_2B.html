@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let myList = ['Bears', 'Lions','Packers','Jets'];
+        function checkThisOut() {
+            alert("Starting")
+            let inTxt = document.getElementById("inText").value;
+            let resObj = document.getElementById("res");
+            if (isItThere(myList, inTxt)) {
+                console.log(`Yes item:${inTxt} is in the list`)
+                resObj.innerHTML = `Yes item:${inTxt} is in the list`
+               // resObj.innerHTML = `<span style='background-color:green'> Yes item:${inTxt} is in the list </span>
+
+
+            } else {
+                console.log(`No item:${inTxt} is NOT in the list`)
+                resObj.innerHTML = `No item:${inTxt} is NOT in the list`
+            }
+        }
+
+            function isItThere(myList,inTxt) {
+        //to do: returns true or false
+            for ( let i = 0; i< myList.length; i++){
+                if(myList[i] === inTxt){
+                    return true;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<h2> My Checker</h2>
+<form>
+    <input type="text" name="blah" id="inText">
+    <button type="button" onclick="checkThisOut()"> Click Me!</button>
+</form>
+<div id="res"> Results here</div>
+</body>
+</html>

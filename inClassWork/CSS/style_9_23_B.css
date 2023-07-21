@@ -1,0 +1,27 @@
+header{
+    width: 100%;
+    margin: 0px;
+    border: 1px solid gray;
+    padding: 25px;
+   background-color: gray;
+}
+
+div.left{
+    width: 160px;
+    height: 500px;
+    margin:0px;
+    border-right: 1px solid gray;
+}
+
+#main{
+    margin-left: 170px;
+    position: absolute;
+    top: 100px;
+}
+
+footer{
+    width: 100%;
+    background-color: gray;
+    padding: 15px;
+    font-size: 20px;
+}

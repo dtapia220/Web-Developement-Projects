@@ -1,0 +1,54 @@
+<!doctype html>
+<title>Example</title>
+<style>
+    body {
+        display: grid;
+        /* template areas -> 3 rows 3 columns each */
+        /* header header header spans entire first row*/
+        /* "nav article ads" 0> creates 3 seperate columns in the second row*/
+
+        grid-template-areas:
+                "header header header"
+                "nav article ads"
+                "footer footer footer";
+        grid-template-rows: 60px 1fr 60px;
+        /* First cols :20% 3rd col: 15% middle 1fr: remaing par */
+        grid-template-columns: 20% 1fr 15%;
+        grid-gap: 10px;
+        height: 100vh;
+        margin: 0;
+    }
+    header, footer, article, nav, div {
+        padding: 20px;
+        background: gold;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    #pageHeader {
+        grid-area: header;
+    }
+    #pageFooter {
+        grid-area: footer;
+    }
+    #mainArticle {
+        grid-area: article;
+    }
+    #mainNav {
+        grid-area: nav;
+    }
+    #siteAds {
+        grid-area: ads;
+    }
+</style>
+<body>
+<header id="pageHeader">Diego Tapia</header>
+<article id="mainArticle">Article
+<br> <img src="imgs/homer2.jpg" height="250" width="175"/></article>
+<nav id="mainNav"><a href="https://aurora.edu">Aurora University </a>
+  <br>  <a href="https://google.com">Google </a></li></nav>
+<div id="siteAds">Ads</div>
+<footer id="pageFooter">Footer</footer>
+</body>

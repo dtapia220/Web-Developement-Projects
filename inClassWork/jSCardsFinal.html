@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script>
+            let cards = [
+               { 'card': 'Ace', 'suit' : 'Hearts', 'value' : 14, 'color' : 'Red' } ,
+               { 'card': 'King', 'suit' : 'Hearts', 'value' : 13, 'color' : 'Red' } ,
+               { 'card': 'Queen', 'suit' : 'Hearts', 'value' : 12, 'color' : 'Red' } ,
+               { 'card': 'Jack', 'suit' : 'Hearts', 'value' : 11, 'color' : 'Red' } ,
+               { 'card': '10', 'suit' : 'Hearts', 'value' : 10, 'color' : 'Red' } ,
+               { 'card': '9', 'suit' : 'Hearts', 'value' : 9, 'color' : 'Red' } ,
+               { 'card': 'Ace', 'suit' : 'Diamonds', 'value' : 14, 'color' : 'Red' } ,
+               { 'card': 'King', 'suit' : 'Diamonds', 'value' : 13, 'color' : 'Red' } ,
+               { 'card': 'Queen', 'suit' : 'Diamonds', 'value' : 12, 'color' : 'Red' } ,
+               { 'card': 'Jack', 'suit' : 'Diamonds', 'value' : 11, 'color' : 'Red' } ,
+               { 'card': '10', 'suit' : 'Diamonds', 'value' : 10, 'color' : 'Red' } ,
+               { 'card': '9', 'suit' : 'Diamonds', 'value' : 9, 'color' : 'Red' } ,
+               { 'card': 'Ace', 'suit' : 'Spades', 'value' : 14, 'color' : 'Black' } ,
+               { 'card': 'King', 'suit' : 'Spades', 'value' : 13, 'color' : 'Black' } ,
+               { 'card': 'Queen', 'suit' : 'Spades', 'value' : 12, 'color' : 'Black' } ,
+               { 'card': 'Jack', 'suit' : 'Spades', 'value' : 11, 'color' : 'Black' } ,
+               { 'card': '10', 'suit' : 'Spades', 'value' : 10, 'color' : 'Black' } ,
+               { 'card': '9', 'suit' : 'Spades', 'value' : 9, 'color' : 'Black' } ,
+               { 'card': 'Ace', 'suit' : 'Clubs', 'value' : 14, 'color' : 'Black' } ,
+               { 'card': 'King', 'suit' : 'Clubs', 'value' : 13, 'color' : 'Black' } ,
+               { 'card': 'Queen', 'suit' : 'Clubs', 'value' : 12, 'color' : 'Black' } ,
+               { 'card': 'Jack', 'suit' : 'Clubs', 'value' : 11, 'color' : 'Black' } ,
+               { 'card': '10', 'suit' : 'Clubs', 'value' : 10, 'color' : 'Black' } ,
+               { 'card': '9', 'suit' : 'Clubs', 'value' : 9, 'color' : 'Black' }
+           ];
+            let red = 0;
+            let black = 0;
+
+
+
+
+            function startGame(){
+               let ca = getCards();
+                displayCards(ca);
+                showResults(ca);
+            }
+            function getCards() {
+            let card1 = Math.floor(Math.random()*23);
+            let card2 = Math.floor(Math.random()*23);
+            let card3 = Math.floor(Math.random()*23);
+            let card4 = Math.floor(Math.random()*23);
+            let card5 = Math.floor(Math.random()*23);
+            let car = [card1,card2,card3,card4,card5];
+           return car;
+            }
+
+            function displayCards(ca) {
+                let c=  document.getElementById("showHand");
+                let oStr = ["","","","",""];
+                for(let i=0; i<5;i++){
+                    oStr[i] =  `${cards[ca[i]].suit} of  ${cards[ca[i]].value}, `;
+
+                }
+                c.innerHTML = "";
+                for(let i=0; i<5;i++) {
+                    if (cards[ca[i]].color === "Red"){
+                        c.innerHTML += oStr[i].fontcolor("red") ;
+                    } else{
+                        c.innerHTML += oStr[i].fontcolor("black");
+                    }
+
+                }
+
+
+
+
+            }
+
+
+
+            function showResults(ca){
+              let total =0;
+              let sBonus = 0;
+              let wBonus =0;
+              red =0;
+              black=0;
+              let res = document.getElementById("showResults");
+              for(let i=0; i<5;i++){
+                    total += cards[ca[i]].value;
+
+                    if (cards[ca[i]].color === "Red"){
+                        red++;
+
+                    } else black++
+                }
+
+              if (red === 5 || black === 5){
+                  sBonus =10;
+              }
+
+
+              let radios = document.getElementsByName('pick');
+                for (let i = 0, length = radios.length; i < length; i++) {
+                    if (radios[i].checked) {
+
+                        if (red>=3 && radios[i].value === 'Red'){
+                        wBonus = 20;
+                        winner(total,wBonus,sBonus,res)
+
+
+                        } else if(black >= red && radios[i].value === 'Red'){
+                            wBonus = 0;
+                            loser(total,wBonus,sBonus,res)
+
+                        } else  if(red>black && radios[i].value === 'Black'){
+                           wBonus =0;
+                            loser(total,wBonus,sBonus,res)
+                        } else if(black >= red && radios[i].value === 'Black'){
+                            wBonus =20;
+                            winner(total,wBonus,sBonus,res)
+                        } else res ="No value selected";
+
+                    }
+                }
+
+
+
+            }
+        function winner(total,wBonus,sBonus,res){
+            res.innerHTML = `Total Points:  ${total + sBonus + wBonus} <br>
+                        <ol>
+                            <li > <span style="background-color:yellow">Hand Point Value: ${total}</span> </li>
+                             <li> <span style="background-color:yellow" > All one suit bonus: ${sBonus} </span> </li>
+                              <li> <span style="background-color:green; color:white"  > Winner: ${wBonus} </span> </li>
+                        </ol>`;
+            }
+            function loser(total, wBonus, sBonus, res) {
+                res.innerHTML = `Total Points:  ${total + sBonus + wBonus} <br>
+                        <ol>
+                            <li > <span style="background-color:yellow">Hand Point Value: ${total}</span> </li>
+                             <li> <span style="background-color:yellow" > All one suit bonus: ${sBonus} </span> </li>
+                              <li> <span style="background-color:red; color:white" > Loser: ${wBonus} </span> </li>
+                        </ol>`;
+            }
+
+
+
+
+    </script>
+    <title>Card Scorer</title>
+    <style>
+        #showHand{
+            font-size: 15px;
+            background-color: antiquewhite;
+            color:blue;
+        }
+        #header2{
+            color:#FF00FF;
+            font-size: 25px;
+        }
+        #header2 span{
+            background-color: antiquewhite;
+        }
+        #red{
+            color:red;
+            font-size:15px;
+        }
+        #showResults{
+            color:blue;
+            background-color: lightblue;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<span class="common" id="showHand"> Show Hand Here</span>
+<br />
+<button id="drawHand"  onClick="startGame()"> Click to draw hand</button>
+<h3 id="header2"> <span> Guess A Card Color  </span></h3>
+<b><span id="red">Red</span></b>:<input type="radio" name="pick" value="Red" checked>
+<b>Black:</b><input type="radio" name="pick" value="Black" >
+<br />
+<br />
+<span class="common" id="showResults"> Results </span>
+</body>
+</html>

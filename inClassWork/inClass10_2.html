@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let myList2 = [];
+        myList2[0]="Bananas";
+        myList2[1]="Bananas";
+        let myList = [ 'Apples', 'Bananas','Cake', "Dog", "Egg", "Fries" ];
+        for( let i=0; i<myList.length; i++ ){
+            console.log(`item:${myList[i]}`)
+        }
+        let keepGoing = true;
+        while (keepGoing == true){
+            let ans = prompt("Enter a number or q to quit")
+            if(ans =="q"){
+                break
+            }
+        }
+        for ( let item in myList ){
+            // These 2 do the same thing -
+            //  I beleive the first line get variable value  in the string
+            console.log(`item:${item}`)
+            console.log("item:" +item)
+        }
+
+    </script>
+</head>
+<body>
+<h2> My Page </h2>
+</body>
+</html>

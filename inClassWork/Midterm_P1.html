@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en">
+<html>
+<head>
+    <! Name: Diego Tapia !>
+    <! F2020 Midterm - This work is my own !>
+    <meta charset="UTF-8">
+    <title>Diego Tapia P1</title>
+    <style type="text/css">
+    #header{
+        width: 450px;
+        background-color: #c9e3ec;
+        border: 2px solid blue;
+        box-sizing: border-box;
+        padding: 65px;
+        color: #9400D3;
+    }
+    #logo{
+     position: relative;
+      top: 50px;
+    }
+    #masterContainer{
+       width: 450px;
+        border: 1px solid blue;
+        color: #9400D3;
+    }
+    #top{
+        font-size: 18px;
+    }
+    </style>
+    <script>
+        let oStr = "Works";
+
+        let costPerPd = [];
+        costPerPd['chi'] = 5;
+        costPerPd['au'] = 1;
+        costPerPd['np'] = 2;
+
+       //
+
+
+
+        function showResults() {
+            let total = 0;
+            let text = document.getElementById("weight");
+            var input = parseInt(text.value , 10);
+            if (input <= 0){
+                document.getElementById("res").innerHTML = "Error enter a number higher than 0";
+
+            }  else if (isNaN(input)) {
+                document.getElementById("res").innerHTML = "Error Enter a number";
+            } else {
+
+
+                let t = document.form1.city;
+                let c = getRadioChecked(document.form1.city);
+
+
+                // alert(`city:${input}`);
+                total = total + input;
+                total = total * costPerPd[c];
+                oStr = "Cost: $" + total.valueOf();
+              //alert(c);
+
+
+                document.getElementById("res").innerHTML = oStr;
+
+            }
+
+        }
+        function getRadioChecked( theRad ) {
+            let nButtons = theRad.length;
+            for( let i=0; i<nButtons; i++ ){
+                if ( theRad[i].checked ){
+
+                    return theRad[i].value;
+                }
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+<span id="header">
+
+           <span id="logo">  <img src="imgs/speedy.png" height="100" width="165"/></span>
+
+
+    <span id="name"> Super Speedy Delivery</span>
+       </span>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="masterContainer">
+    <div id="container">
+        <h2 id="top"> Package Shipping Calculator</h2>
+        <form name="form1">
+            <table >
+                <tr><td> Package Weight</td><td> <input type="text" id="weight" name="input1"> </td> </tr>
+                <tr><td> Destination</td><td> Chicago: <input type="radio" name="city" value="chi">
+                    Naperville: <input type="radio" name="city" value="np">
+                    Aurora:  <input type="radio" name="city" value="au" checked="checked">
+                </td>
+                <tr><td> <button type="button" onClick="showResults()"> Click to start</button>
+                </td></tr>
+            </table>
+        </form>
+
+        <span id="res">  </span>
+    </div>
+</div>
+</body>
+</html>

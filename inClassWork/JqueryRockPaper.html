@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel='stylesheet' href="rockStyles.css"></link>
+    <script>
+        $(document).ready(function(){
+           let rps = [
+              { id: 0, 'item': 'rock', beats: 'scissors', 'img' : 'rock.PNG'},
+              { id: 1, 'item': 'paper', beats: 'rock', 'img' : 'paper.PNG'},
+              { id : 2, 'item': 'scissors', beats: 'paper', 'img' : 'scissors.PNG'}
+           ];
+        let gState = {
+           'wins'  : 0,
+           'loss'  : 0,
+           'draws'  : 0,
+           'tWins'  : 0
+        }
+        function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+       $("#sel1").change(function() {
+           //
+           //
+           //
+           let cPick = getRandomInt(0,2);
+           let uPick = $('#sel1').find(":selected").val();
+           let uBet = $('#bet').val();
+           let wins = $('#wins').val();
+           let loss = $('#loss').val();
+           let tWins = $('#tWins').val();
+
+            setValueDisplay( uBet, "bet");
+
+            let cPickItem =rps[cPick].item;
+            let cPickObj =rps[cPick];
+            let uPickObj =rps[uPick];
+            console.log(rps[uPick] );
+            setDisplayImg( uPickObj, "uPick");
+            setDisplayImg( cPickObj, "cPick");
+
+            if ( uPickObj.beats == cPickObj.item ) {
+                setValueDisplay( "Winner!", "resArea");
+                //wins = parseInt(wins) + 1;
+              //  tWins = parseInt(tWins)+ 1;
+
+               // gState.wins += 1;
+               // gState.tWins += uBet;
+               // alert( `Seeings Wins:${gState.wins}`)
+
+              // setValueDisplay(100,"tWins");
+
+              //  setValueDisplay( gState.wins, "wins");
+
+            } else if ( cPickObj.beats == uPickObj.item ) {
+                setValueDisplay( "Loser!", "resArea");
+                loss = parseInt(loss) + 1;
+                tWins = parseInt(tWins)+ 1;
+                gState.loss += 1;
+                gState.tWins += 1;
+                alert( `Seeings loss:${loss}`)
+
+                setValueDisplay(gState.loss,"tWins");
+                setValueDisplay( gState.loss, "loss");
+            } else {
+                // ToDo: 2 Get the draw to update the count
+                setValueDisplay( "Draw!", "resArea");
+            }
+        });
+      });
+      function setValueDisplay( val, disId ) {
+          $(`#${disId}`).html( val );
+      }
+      function setDisplayImg( oPickObj, disId ) {
+          let iStr = `<img src='imgs/${oPickObj.img}' width='40px' height='40px' >`;
+          //alert(`iStr=${iStr}`);
+          $(`#${disId}`).html(`${iStr}`);
+       }
+
+    </script>
+</head>
+<body>
+   <h1>Rock ... Paper ... Scissors!</h1>
+            <div class="grid-container">
+                <div id="uPick"> Rock </div>
+                <div id="cPick"> Paper </div>
+                <div id="selDiv">
+                        <select name="uPick" id="sel1" size="4">
+                            <option value="0"> Rock </option>
+                            <option value="1"> Paper </option>
+                            <option value="2"> Scissors </option>
+                        </select>
+                </div>
+                <div id="resArea"> Results </div>
+                <div id="betArea">
+                     Bet: <input type="number" id='bet' min="1" max="10" value="0">
+                </div>
+
+               <div id="winnings">
+                  Wins: <span id="wins"> 0 </span>
+                  Loss: <span id="loss"> 0 </span>
+                  Draws: <span id="draws"> 0 </span>
+                  Winnings: <span id="tWins"> 0 </span>
+               </div>
+            </div>
+   </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> Show Top Movie Info </h3>
+<select name="lotrId" id="lotrId" size="3">
+    <option value="01" > Aragon </option>
+   <option value="02" > Gimli </option>
+    <option value="03" > Legolas </option>
+    <option value="04" > Gandalf </option>
+    <option value="05" >  Sam </option>
+    <option value="06" > Frodo </option>
+    <option value="07" > Boromir</option>
+</select>
+<! On click of this button, load the data from this URL: http://45.55.136.114/~dlash/CSC2200/LOTR.php !>
+<! So if you click 'Legolas' then load then produce a table under LOTRResults that has !>
+<! the following: Gimli	Dwarf	138 as a 1 row table !>
+<! Repeat this work until you can solve it from scratch in about 15 minutes !>
+<! You have to supply the code for lotrParse.js !>
+<button id="showButton"> Show LOTR Character Info </button>
+<span id="LOTRResults"> Results </span>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="lotrParse.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+div.ex1 {
+    width: 300px;
+    background-color: yellow;
+    border: 2px dotted;
+    top : 300px;
+    position: absolute;
+}
+div.ex2 {
+    width: 300px;
+    background-color: deepskyblue;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 2px solid crimson;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready( function() {
+        alert("Jquery Initiated");
+
+        let myToggle = true;
+        $("#first").click( function () {
+            if ( myToggle) {
+                $(".myClass").hide();
+                myToggle = false;
+            }  else {
+                $(".myClass").show();
+                myToggle = true;
+            }
+        });
+
+        $(document).ready( function() {
+            $("#b1").click( function() {
+                alert("B1 Clicked")
+            });
+        });
+        $("#b1").click( function() {
+            alert("B1 Clicked")
+            $("tr:even").css("background-color","red");
+            $("tr:odd").css("background-color","coral");
+        });
+
+
+        $("#first").click( function(){
+            alert("ID First Clicked");
+        });
+        $(".myClass").click( function(){
+            alert("myClass item is Clicked");
+        });
+
+    });
+
+</script>
+</head>
+<body>
+<h2>This is my header</h2>
+<h2> My Table Info  </h2>
+<table border="1">
+    <tr> <th> Date</th> <th> Opponent</th><th>W/L</th></tr>
+</table>
+<table border="1">
+    <tr> <th> Date</th> <th> Opponent</th><th>W/L</th></tr>
+    <tr> <td> 8/15</td> <td> Packers</td><td>L</td></tr>
+    <tr> <td> 8/21</td> <td> Jets</td><td>W</td></tr>
+    <tr> <td> 8/28</td> <td> 49ers</td><td>W</td></tr>
+    <tr> <td> 9/5 </td> <td> Titans</td><td>W</td></tr>
+</table>
+
+<p>This is really interesting lorem15</p>
+<p id="first">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+    praesentium quaerat quos! Excepturi, minima ut. </p>
+<h1 class="myClass">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form Example</title>
+</head>
+<h2>Form Example</h2>
+<form name="myForm" id="myFormId" action="blah.php" method="get">
+    <h3>Class Survey</h3>
+    Class Name: <input type="text" name="cName" size="100px" placeholder="Your Class (e.g, CSC2200)" maxlength="7"/>
+    <br>
+    Required Class?: Yes:<input type="radio" name = "rad1" value="Y">
+                      No:<input type="radio" name = "rad1" value="N">
+                   Maybe:<input type="radio" name = "rad1" value="M">
+
+    <br>
+    Class Prerequisites?:   CSC1700 <input type ="checkbox" name="preReq" value="csc1700">
+                            CSC2300 <input type ="checkbox" name="preReq" value="arch">
+    Class Prerequisites?:   CSC2650 <input type ="checkbox" name="preReq" value="oop">
+    <br>
+    How is the class going so far:<select name = "going" multiple size="2">
+                                            <option value ="0"> No good</option>
+    <option value ="1"> OK</option>
+    <option value ="2"> Great</option>
+</select>
+    <br>
+    Comments: <textarea name="Comments" rows ="3" cols="100">
+    Comments here
+</textarea>
+    <input type="submit" value="Click Me!" />
+    <input  type="reset" value="Clear Form!"/>
+</form>
+
+<H2> </H2>
+
+GEt send data along to a program using the url string
+Examples
+<ol>
+    <li>
+
+    </li>
+</ol>
+put sends data in the body of the request and<i> therefore is invisble to the user
+</i>
+
+</body>
+</html>

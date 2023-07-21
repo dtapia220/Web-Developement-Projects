@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let dice = [
+            { 'dName' : 'Die1.PNG', 'value': 1 },
+            { 'dName' : 'Die2.PNG', 'value': 2 },
+            { 'dName' : 'Die3.PNG', 'value': 3 },
+            { 'dName' : 'Die4.PNG', 'value': 4 },
+            { 'dName' : 'Die5.PNG', 'value': 5 },
+            { 'dName' : 'Die6.PNG', 'value': 6 }
+        ];
+
+        let uInput = {};
+
+        function getUserBet(){
+            let getObj  = document.getElementById("guess");
+            uInput.guess = getObj.value;
+            uInput.gotError = false;
+            if( uInput.guess === "" || isNaN(uInput.guess)
+            || uInput.guess < 1 || uInput.guess > 6){
+                uInput.error =`Bad Guess`;
+                uInput.gotError = true;
+                return null
+            }
+        return uInput;
+        }
+
+        function getRoll(){
+            let r1 = Math.floor(Math.random() * 6);
+            return r1;
+        }
+
+        function updateDie(die1, die2, resArea) {
+            //retunrs total wins
+
+            let r1 = getRoll(die1);
+            let dice1 = dice[r1];
+            let r2 = getRoll(die1);
+            let dice2 = dice[r2];
+
+            die1.innerHTML = `<img src='imgs/${dice1.img} height='50px' width='50px'>`
+            die2.innerHTML = `<img src='imgs/${dice2.img} height='50px' width='50px'>`
+            if ( dice1.value == uInput.guess ){
+                uInput.tWins += 1;
+            }
+            if ( dice2.value == uInput.guess ){
+                uInput.tWins += 1;
+            }
+
+
+        }
+
+        function startGame() {
+            alert( "Start");
+            let resArea  = document.getElementById("dieElement");
+            getUserBet();
+            if(uInput.gotError){
+                resArea.innerHTML= `<span style='color:red'> ${uInput.error} </span>`
+            return;
+            } else {
+                alert("No error")
+            }
+            let die1 = document.getElementById("die1")
+            let die2 = document.getElementById("die2")
+            let tWins = updateDie(die1,die2,resArea)
+
+
+
+
+        }
+    </script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            grid-template-rows: 80px 200px 15%;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+            background-color: yellow;
+        }
+        #button1 {
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #button2 {
+            background-color: #bbbbbb;
+            font-size: 20px;
+        }
+        #startButton {
+            background-color: #bbbbbb;
+            background-color: #33b5e5;
+            font-size: 20px;
+        }
+        #rolls, #wins, #tWin, #res {
+            height: 60px;
+            width: 60px;
+            border: 1px solid black;
+            background-color: #bbbbbb;
+            font-size: 19px;
+        }
+        #dieResults {
+            border: 1px solid black;
+        }
+        #winnings {
+            grid-column: 1 / span 3;
+        }
+    </style>
+</head>
+<body >
+<h1>Guess at least 1 die!</h1>
+<div class="grid-container">
+    <div id="die1"> Die1 </div>
+    <div id="die2"> Die2 </div>
+    <div><button id="startButton" onClick="startGame()"> Start </button>
+    <button id="reset" onClick="resetGame()"> Reset </button></div>
+
+    <div id="dieResults"> Die Results </div>
+    <div id="guessArea"> Guess : <input type="number" id='guess' min="1" max="10" value="0"> </div>
+    <div id="betArea"> Bet: <input type="number" id='bet' min="1" max="10" value="0"></div>
+
+    <div id="winnings">
+        Rolls: <span id="rolls"> 0 </span>
+        Wins: <span id="wins"> 0 </span>
+        Winnings: <span id="tWin"> 0 </span>
+    </div>
+</div>
+</body>
+</html>

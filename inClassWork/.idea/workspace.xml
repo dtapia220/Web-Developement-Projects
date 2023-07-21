@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9ba59119-8a4f-45f1-a0d5-a9bd32a8b77f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gdfKj0LT1D3EeHzDEY7iPzAjB0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\go2di\Desktop\CSC2200\inClassWork" />
+      <recent name="C:\Users\go2di\Desktop\CSC2200\inClassWork\CSS" />
+      <recent name="C:\Users\go2di\Desktop\CSC2200\inClassWork\imgs" />
+      <recent name="C:\Users\go2di\Desktop\CSC2200\inClassWork\lib" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\go2di\Desktop\CSC2200\inClassWork" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.HW5.html">
+    <configuration name="HW5.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/inClassWork/HW5.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="HW4_javascript.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/HW4_javascript.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.HW5.html" />
+        <item itemvalue="Node.js.HW4_javascript.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ba59119-8a4f-45f1-a0d5-a9bd32a8b77f" name="Default Changelist" comment="" />
+      <created>1598449342910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598449342910</updated>
+      <workItem from="1598449348300" duration="1634000" />
+      <workItem from="1598618750337" duration="3319000" />
+      <workItem from="1598879835206" duration="3031000" />
+      <workItem from="1598883076271" duration="5298000" />
+      <workItem from="1599051363188" duration="4641000" />
+      <workItem from="1599223998755" duration="3338000" />
+      <workItem from="1599656622480" duration="593000" />
+      <workItem from="1599829201046" duration="10784000" />
+      <workItem from="1600042107886" duration="3495000" />
+      <workItem from="1600223700486" duration="3763000" />
+      <workItem from="1600433723899" duration="3774000" />
+      <workItem from="1600692755756" duration="11117000" />
+      <workItem from="1600865436631" duration="4212000" />
+      <workItem from="1601038974310" duration="7230000" />
+      <workItem from="1601471034323" duration="4104000" />
+      <workItem from="1601643427761" duration="6092000" />
+      <workItem from="1601902934043" duration="6608000" />
+      <workItem from="1602009505802" duration="1908000" />
+      <workItem from="1602076072945" duration="3494000" />
+      <workItem from="1602248651498" duration="3757000" />
+      <workItem from="1602507706542" duration="2442000" />
+      <workItem from="1602679346715" duration="9984000" />
+      <workItem from="1602787921713" duration="295000" />
+      <workItem from="1602895490629" duration="2766000" />
+      <workItem from="1603285172439" duration="7100000" />
+      <workItem from="1603718105903" duration="34302000" />
+      <workItem from="1605103434557" duration="3802000" />
+      <workItem from="1605231506316" duration="10866000" />
+      <workItem from="1605707968232" duration="13592000" />
+      <workItem from="1606139850077" duration="8607000" />
+      <workItem from="1606744670025" duration="14956000" />
+      <workItem from="1606918733050" duration="16014000" />
+      <workItem from="1607349280190" duration="10918000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="766" y="188" key="#Notifications" timestamp="1599832427747">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="766" y="188" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1599832427747" />
+    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1604328152019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="829" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604328152019" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1601929620806">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601929620806" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1601929620806">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601929620806" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1601929620805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601929620805" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1601929620806">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601929620806" />
+    <state x="500" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607353218292">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1607353218292" />
+    <state x="680" y="166" key="run.anything.popup" timestamp="1601650679337">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="680" y="166" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1601650679337" />
+    <state x="655" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1606785534187">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="655" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606785534187" />
+  </component>
+</project>

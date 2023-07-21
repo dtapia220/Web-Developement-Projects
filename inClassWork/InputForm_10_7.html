@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let pizza  = new Array();
+        // Need to define costs here
+        pizza['sm']=9.99;  //hash key 'sm' val 9.99
+        pizza['med']=10.99;
+        pizza['lar']=12.99;
+        pizza['eLar']=15.99;
+
+        let tops  = new Array();
+        tops['pep'] = .5;
+        tops['sau'] = .6;
+        tops['shroom'] = .7;
+        tops['pine'] = 1.50;
+        tops['oni'] = .5;
+
+
+        function calcTotal() {
+           alert("validate");
+
+           let pSize = getRadioChecked( document.myForm.pSize);
+           console.log(`pSize:${pSize}`);
+           let t = document.myForm.topping;
+         //  let t = document.
+          // alert(`t1:${t[0].checked}`)
+          // alert(`t2:${t[1].checked}`)
+           //alert(`t3:${t[2].checked}`)
+          // alert(`t4:${t[3].checked}`)
+            let tTotal = getToppingTotal(t)
+           //let pCost = pizza[pSize];
+           //console.log(`pCost:${pCost}`);
+          // console.log(`SM Cost:${pizza['sm']}`)
+           //console.log(`Med Cost:${pizza['med']}`)
+           //console.log(`Lar Cost:${pizza['lar']}`)
+
+           if( !pSize ) {
+               alert("You gotta pick a pizza");
+           } else {
+               if ( pizza[pSize] == null ){
+                   alert("Something broke pSize" +pSize);
+               } else {
+                   pCost = pizza[pSize];
+                   console.log(`pizza cost: ${pizza[pSize]}`)
+               }
+           }
+           let totalBill= tTotal + pCost;
+           //let tTotal = getToppingTotal( t )
+            parseFloat(totalBill);
+           console.log(`tTotalBill: ${tTotal}`)
+            let res = document.getElementById('results');
+           res.innerHTML = `Total Cost:${totalBill} Pizza:${tTotal} Toppings:${pCost}`
+
+           return false;
+       }
+
+       function getToppingTotal(c){
+            //Total all toppings checked by user
+
+           let total = 0;
+           //for each item in check box group
+           for ( let i=0; i<c.length; i++ ){
+               if ( c[i].checked ) {
+                   // pep, sau, shroom or pine
+                   let v = c[i].value;
+                  // alert(`val:${v}`)
+                   total += tops[v];
+                   alert(`total:${total}`);
+
+               }
+           }
+           return total;
+       }
+
+       function getRadioChecked( theRad ) {
+            // return the value of the checked radio button
+            // or return false if none are checked
+            let nButtons = theRad.length; // How many radio button in the group
+            for( let i=0; i<nButtons; i++ ){
+                if ( theRad[i].checked ){
+                    return theRad[i].value;
+                }
+            }
+            return false;
+       }
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<form name="myForm">
+    <h2> Pizza Size</h2>
+    Small 8": <input type="radio" name="pSize" value="sm">
+    Medium 10": <input type="radio" name="pSize" value="med">
+    Large 12": <input type="radio" name="pSize" value="lar">
+    Extra Large 14": <input type="radio" name="pSize" value="eLar">
+
+    <br />
+    <h2> Toppings </h2>
+    Pepperoni: <input type="checkbox" name="topping" value="pep">
+    Sausage: <input type="checkbox" name="topping" value="sau">
+    Shrooms: <input type="checkbox" name="topping" value="shroom">
+    PineApple: <input type="checkbox" name="topping" value="pine">
+    Onions: <input type="checkbox" name="topping" value="oni">
+    <button type='button' name="myButton" onclick="calcTotal()" > Calc Total </button>
+    <h2> Total Cost </h2>
+    <div id="results"> Your Total Here </div>
+</form>
+
+</body>
+</html>

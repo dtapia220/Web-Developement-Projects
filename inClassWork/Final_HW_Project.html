@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        let roll = 0;
+        let turn = 1;
+        let total = 0;
+
+        let dice = [
+            { 'dName' : 'Die1.PNG', 'value': 1 },
+            { 'dName' : 'Die2.PNG', 'value': 2 },
+            { 'dName' : 'Die3.PNG', 'value': 3 },
+            { 'dName' : 'Die4.PNG', 'value': 4 },
+            { 'dName' : 'Die5.PNG', 'value': 5 },
+            { 'dName' : 'Die6.PNG', 'value': 6 }
+        ];
+
+        function startGame() {
+
+            checkRolls();
+            setValues();
+            setHolds();
+            checkHolds();
+
+        }
+
+        function checkRolls() {
+            if (turn === 1 && roll === 0){
+                alert("Game Started");
+                let name = prompt("Enter your name: ", "");
+                let str = name + `'s Yahtzee Game   <img src=\"imgs/ydice.png\" height=\"60\" width=\"60\"/>`;
+                let n = document.getElementById("name")
+                n.innerHTML = str;
+            }
+
+            roll = roll + 1;
+
+            if (roll === 3) {
+                document.getElementById("startButton").disabled = true;
+            }
+
+        }
+
+        function nextTurn(){
+            if (turn === 13){
+                alert("Game Over");
+                alert("\nYour Score was:" + total);
+                document.getElementById("startButton").disabled = true;
+                document.getElementById("next").disabled = true;
+            }
+            roll = 0;
+            turn++;
+            resetHolds()
+            resetScores()
+            setValues()
+
+            document.getElementById("startButton").disabled = false;
+            document.getElementById("next").disabled = true;
+        }
+
+        function setValues() {
+            let r = document.getElementById("roll")
+            r.innerHTML = `Roll: ${roll}`;
+            let tu = document.getElementById("turn")
+            tu.innerHTML = `Turn: ${turn}`;
+            let tot = document.getElementById("total")
+            tot.innerHTML = `Total: ${total}`;
+        }
+
+        function clickScores(dRes, number) {
+            dRes.onclick = function (){
+                total = total+ number;
+                number =0;
+                setValues();
+                resetScores();
+                document.getElementById("next").disabled = false;
+                return number;
+            };
+        }
+
+        function score1(number) {
+            let dRes = document.getElementById("score1");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Ones:${number}`;
+           number = clickScores(dRes, number);
+        }
+        function score2(number) {
+            let dRes = document.getElementById("score2");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Twos:${number}`;
+            number = clickScores(dRes, number);
+        }
+        function score3(number) {
+            let dRes = document.getElementById("score3");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Threes:${number}`;
+            number = clickScores(dRes, number);
+        }
+        function score4(number) {
+            let dRes = document.getElementById("score4");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Fours:${number}`;
+            number = clickScores(dRes, number);
+        }
+        function score5(number) {
+            let dRes = document.getElementById("score5");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Fives:${number}`;
+            number = clickScores(dRes, number);
+        }
+        function score6(number) {
+            let dRes = document.getElementById("score6");
+            dRes.style.backgroundColor = '#6CAC3E';
+            dRes.innerHTML = `Sixes:${number}`;
+            number = clickScores(dRes, number);
+        }
+
+        function scoring(val1, val2, val3, val4, val5) {
+
+            let s1 = 0; let s2 = 0; let s3 = 0;
+            let s4 = 0; let s5 = 0; let s6 = 0;
+            let score = [ val1 , val2, val3, val4, val5];
+
+            for (let i = 0; i < 5; i++) {
+                if (score[i] === 1) {
+                    s1 += score[i]
+                    score1(s1)
+                } else if (score[i] === 2) {
+                    s2 += score[i]
+                    score2(s2)
+                } else if (score[i] === 3) {
+                    s3 += score[i]
+                    score3(s3)
+                } else if (score[i] === 4) {
+                    s4 += score[i]
+                    score4(s4)
+                } else if (score[i] === 5) {
+                    s5 += score[i]
+                    score5(s5)
+                } else if (score[i] === 6) {
+                    s6 += score[i]
+                    score6(s6)
+                }
+            }
+        }
+
+
+
+        function getDice1() {
+            let d1Res = document.getElementById("die1")
+            let r1 = Math.floor(Math.random()*6);
+            let img1 = dice[r1].dName;
+            let val1 = dice[r1].value;
+            d1Res.innerHTML = "<img src='imgs/" + img1 + "' height='50px' width='50px'>";
+            return val1;
+        }
+        function getDice2() {
+            let d2Res = document.getElementById("die2")
+            let r2 = Math.floor(Math.random()*6);
+            let img2 = dice[r2].dName;
+            let val2 = dice[r2].value;
+            d2Res.innerHTML = "<img src='imgs/" + img2 + "' height='50px' width='50px'>";
+            return val2;
+        }
+        function getDice3() {
+            let d3Res = document.getElementById("die3")
+            let r3 = Math.floor(Math.random()*6);
+            let img3 = dice[r3].dName;
+            let val3 = dice[r3].value;
+            d3Res.innerHTML = "<img src='imgs/" + img3 + "' height='50px' width='50px'>";
+            return val3;
+        }
+        function getDice4() {
+            let d4Res = document.getElementById("die4")
+            let r4 = Math.floor(Math.random()*6);
+            let img4 = dice[r4].dName;
+            let val4 = dice[r4].value;
+            d4Res.innerHTML = "<img src='imgs/" + img4 + "' height='50px' width='50px'>";
+            return val4;
+        }
+        function getDice5() {
+            let d5Res = document.getElementById("die5")
+            let r5 = Math.floor(Math.random()*6);
+            let img5 = dice[r5].dName;
+            let val5 = dice[r5].value;
+            d5Res.innerHTML = "<img src='imgs/" + img5 + "' height='50px' width='50px'>";
+            return val5;
+        }
+
+        function setHolds() {
+            document.getElementById("die1").onclick = function(){
+                document.getElementById("die1").style.backgroundColor = 'green';
+            }
+            document.getElementById("die2").onclick = function(){
+                document.getElementById("die2").style.backgroundColor = 'green';
+            }
+            document.getElementById("die3").onclick = function(){
+                document.getElementById("die3").style.backgroundColor = 'green';
+            }
+            document.getElementById("die4").onclick = function(){
+                document.getElementById("die4").style.backgroundColor = 'green';
+            }
+            document.getElementById("die5").onclick = function(){
+                document.getElementById("die5").style.backgroundColor = 'green';
+            }
+        }
+        function checkHolds() {
+            if (document.getElementById("die1").style.backgroundColor !== "green") {
+                val1 = getDice1();
+            }
+            if (document.getElementById("die2").style.backgroundColor !== 'green') {
+                val2 = getDice2();
+            }
+            if (document.getElementById("die3").style.backgroundColor !== 'green') {
+                val3 = getDice3();
+            }
+            if (document.getElementById("die4").style.backgroundColor !== "green") {
+                val4 = getDice4();
+            }
+            if (document.getElementById("die5").style.backgroundColor !== "green") {
+                val5 = getDice5();
+            }
+            if (roll === 3) {
+                scoring(val1, val2, val3, val4, val5);
+            }
+        }
+
+        function resetHolds() {
+            let d1 = document.getElementById("die1");
+                d1.style.backgroundColor = '#A8B9F5';
+                d1.innerHTML = "Die1"
+            let d2 = document.getElementById("die2");
+                d2.style.backgroundColor = '#A8B9F5';
+                d2.innerHTML = "Die2";
+            let d3 = document.getElementById("die3");
+                d3.style.backgroundColor = '#A8B9F5';
+                d3.innerHTML = "Die3";
+            let d4 = document.getElementById("die4");
+                d4.style.backgroundColor = '#A8B9F5';
+                d4.innerHTML = "Die4"
+            let d5 = document.getElementById("die5");
+                d5.style.backgroundColor = '#A8B9F5';
+                d5.innerHTML = "Die5"
+
+        }
+        function resetScores(){
+
+            let s1 = document.getElementById("score1");
+            s1.style.backgroundColor = '#A8B9F5';
+            s1.innerHTML = "Ones:";
+            let s2 = document.getElementById("score2")
+            s2.style.backgroundColor = '#A8B9F5';
+            s2.innerHTML = "Twos:";
+            let s3 = document.getElementById("score3")
+            s3.style.backgroundColor = '#A8B9F5';
+            s3.innerHTML = "Threes:";
+            let s4 = document.getElementById("score4");
+            s4.style.backgroundColor = '#A8B9F5';
+            s4.innerHTML = "Fours:";
+            let s5 = document.getElementById("score5");
+            s5.style.backgroundColor = '#A8B9F5';
+            s5.innerHTML = "Fives:";
+            let s6 = document.getElementById("score6");
+            s6.style.backgroundColor = '#A8B9F5';
+            s6.innerHTML = "Sixes:";
+        }
+
+    </script>
+    <style>
+
+
+
+    </style>
+    <link rel="stylesheet" href="CSS/Final_HW_Style.css">
+</head>
+<body>
+       <nav>
+         <a href="https://www.w3schools.com/colors/colors_monochromatic.asp">Color Scheme</a></>
+         <a href="http://45.55.136.114/~dtapia02/HW1.html">HW</a></>
+        <a href="https://www.dicegamedepot.com/yahtzee-rules/">Rules</a></>
+       </nav>
+
+<h1 id="name"> Yahtzee     <img src="imgs/ydice.png" height="60" width="60"/></h1>
+
+<div class="grid-container">
+    <div><button id="startButton" onClick="startGame()"> Start </button></div>
+    <div id="die1"> Die1 </div>
+    <div id="die2"> Die2 </div>
+    <div id="die3"> Die3 </div>
+    <div id="die4"> Die4 </div>
+    <div id="die5"> Die5 </div>
+
+    <div id="score1"> Ones:  </div>
+    <div id="score2"> Twos: </div>
+    <div id="score3"> Threes: </div>
+    <div id="score4"> Fours: </div>
+    <div id="score5"> Fives: </div>
+    <div id="score6"> Sixes: </div>
+
+    <div><button id="next" onClick="nextTurn()" disabled="true"> Next Turn </button>
+    <div id="roll"> Roll: </div>
+    <div id="turn"> Turn: </div>
+    <div id="total"> Total: </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

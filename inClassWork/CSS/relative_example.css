@@ -1,0 +1,39 @@
+body {
+    font-family: Arial;
+    font-size: 15px;
+    background-color: #c9e3ec;
+}
+div.container {
+    padding: 20px 20px 0 20px;
+    /* Initially static ... need to make it relative
+       if want to use absolute for img
+     */
+    position: relative;
+    background-color: yellow;
+}
+div.footer {
+    font-weight: bold;
+    background-color:#80aab7;
+    color: #c9e3ec;
+    padding: 7px 20px;
+    margin: 3em -20px 0 -20px;
+}
+img{
+    position: relative;
+    border:2px solid #80aaa7;
+    top: 5px;
+    left: 5px;
+    /* This img tag is wi the div.container
+        try to make it absolute (and div.containter is static)
+        then it will be absolute to overall page (not div.containter)
+     */
+    /* if position set to relative can put img w/i containter */
+}
+h1 {
+    position: relative;
+    /*  top within a relative can move item
+        without disrupting the other items
+    top: 15px;
+
+     */
+}

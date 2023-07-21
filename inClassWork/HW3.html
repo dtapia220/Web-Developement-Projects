@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Author: Diego Tapia -->
+<!-- Course: CSC2200 Fall  -->
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 3</title>
+    <style>
+        h1 {font-size: 35px; background-color:yellow; width: 500px}
+        table {border-collapse: collapse; background-color: #d9e9ff}
+        table th {background-color: #A8F69B; font-size: 25px;}
+        h3 {background-color: teal}
+    </style>
+</head>
+<body>
+<h1> Happy Harry's Hardware </h1>
+<form name="myForm" id="myFormId" action="http://45.55.136.114/~dlash/hw/handleInventory.php" method="get">
+<table border="1" >
+
+    <tr> <th> <p> Inventory Control Form</p> <tr> <th>
+
+
+            <tr><td> Hammer:<input type="radio" name = "item" value="hammer">
+                    Wrench:<input type="radio" name = "item" value="wrench"> </td> </tr>
+
+            <tr><td> How many did you sell: <select name = "count" multiple size="2">
+                <option value ="1"> 1</option>
+                <option value ="2"> 2</option>
+                <option value ="3"> 3</option>
+                <option value ="4"> 4</option>
+                <option value ="5"> 5</option> </select> </td></tr>
+
+            <tr><td> What is your associate employee ID:<select name = "employee" multiple size="2">
+                <option value ="101"> 101</option>
+                <option value ="201"> 201</option>
+                <option value ="301"> 301</option> </select> </td></tr>
+
+
+    <tr> <td> What is the password:<input type="password"  name="pass"> </td> </tr>
+            <tr> <td> Enter a valid email address: <input type="email" name="email" ></td> </tr>
+
+            <tr> <td>  Click all that apply Item for this item:
+          <br>      1. It is in the original packaging:<input type="checkbox" name = "originalPackage" value="Y">
+          <br>      2. It is on the shelf:<input type="checkbox" name = "onShelf" value="Y">
+          <br>      3. It was returned from customer:<input type="checkbox" name = "customerReturned" value="Y">
+            </td> </tr>
+    <tr> <td> <input type="submit" value="Click to submit"/>  </td> </tr>
+
+</table>
+</form>
+<h3> Thank you for filling out our form</h3>
+
+
+</body>
+</html>

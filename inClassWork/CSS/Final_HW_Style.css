@@ -1,0 +1,55 @@
+
+
+body {
+    background-color: #FC9B2C;
+}
+
+#name{
+    text-align: center;
+    border: 1px solid black;
+    background-color: #BA7AEB;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    grid-template-rows: 80px ;
+    grid-gap: 5px;
+    padding: 10px;
+}
+
+.grid-container div:hover {
+    background-color: #ddd;
+    color: #2E2FE3;
+}
+
+.grid-container > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    background-color: #A8B9F5;
+    border: 1px solid black;
+}
+nav {
+    overflow: hidden;
+    background-color: #342009;
+}
+
+nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 200px 20px 200px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: #2E2FE3;
+}
+
+nav a.active {
+    background-color: #2E2FE3;
+    color: white;
+}

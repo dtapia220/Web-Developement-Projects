@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function showTax() {
+            let txt = document.getElementById("income").value;
+            let res = document.getElementById("results");
+            let oStr = "Works";
+            let tax = txt;
+
+            if (txt === "") {
+                oStr = `You need to provide a value for item`
+                document.getElementById("results").style.backgroundColor = "red";
+            } else if (txt === "blah") {
+                oStr = `Error Income: blah is invalid`
+                document.getElementById("results").style.backgroundColor = "red";
+            } else if (txt < 50000 && txt > 0) {
+                tax = (txt * .10)
+                oStr = "Your total tax is:" + tax;
+                document.getElementById("results").style.backgroundColor = "green";
+            } else if (txt >= 50000 && txt < 100000) {
+                tax = (txt * .21);
+                oStr = 'Your total tax is:' + tax;
+                document.getElementById("results").style.backgroundColor = "green";
+            } else if (txt < 0) {
+                oStr = 'Error Number cannot be negative';
+                document.getElementById("results").style.backgroundColor = "red";
+            } else {
+                tax = (txt * .28)
+                oStr = 'Your total tax is:' + tax;
+                document.getElementById("results").style.backgroundColor = "green";
+            }
+
+            res.innerHTML=oStr;
+        }
+        //
+        // Variation 1 - Place the results in a box with background yellow, width 500px height 200px
+        //                make the word Result in bold font size 20px
+        //                the show the results on next line
+        // ---- place your script here and upload  to moodle
+
+    </script>
+    <style>
+        div {
+            display: block;
+            width: 500px;
+            height: 200px;
+            background-color: yellow;
+            text-align: center;
+            border: 20px black;
+        }
+    </style>
+</head>
+<body>
+<h2> Tax Bill </h2>
+<form name="myForm">
+    Total Income <input type="text" name="inc" id="income" />
+    <br />
+    <br /><button type="button" onclick="showTax()"/> Click to start </button>
+
+    <br /><div id="results"> Results here</div>
+</form>
+</body>
+</html>

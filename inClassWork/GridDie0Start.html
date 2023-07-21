@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       // let dice = []; //this creates a numbered array
+       // let dice = {}   creates a associative aray with key/value
+
+       let dice = [
+           { 'dName' : 'Die1.PNG', 'value': 1 },
+           { 'dName' : 'Die2.PNG', 'value': 2 },
+           { 'dName' : 'Die3.PNG', 'value': 3 },
+           { 'dName' : 'Die4.PNG', 'value': 4 },
+           { 'dName' : 'Die5.PNG', 'value': 5 },
+           { 'dName' : 'Die6.PNG', 'value': 6 }
+       ];
+
+
+       function startGame() {
+            alert( "Game Started");
+            let d1Res = document.getElementById("die1")
+           let d2Res = document.getElementById("die2")
+           let r1 = Math.floor(Math.random()*6)//returns rand number 1-6
+           let r2 = Math.floor(Math.random()*6)//returns rand number
+           let img1 = dice[r1].dName;
+           let val1 = dice[r1].value;
+           let img2 = dice[r2].dName;
+           let val2 = dice[r2].value;
+
+           let oStr1 = "<img src='imgs/" + img1 + "' height='50px' width='50px'>";
+           let oStr2 = "<img src='imgs/" + img2 + "' height='50px' width='50px'>";
+
+           d1Res.innerHTML = oStr1;
+           d2Res.innerHTML = oStr2;
+
+           let sum = val1 + val2;
+           let dRes = document.getElementById("dieResults");
+           dRes.innerHTML = `Your Roll Value:${sum}`;
+
+
+           //   uNum = prompt("Gimmer a dice number [0-5]->")
+         //  let dImg = dice[uNum].dName;
+         //  alert( `Your dice image is ${dImg} with value:${dice[uNum].value}`)
+       }
+    </script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 15% 15% 15%;
+            grid-template-rows: 80px 200px;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+            background-color: yellow;
+        }
+        #dieResults {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body >
+<h1>The Dice Game </h1>
+
+<div class="grid-container">
+    <div id="die1"> Die1 </div>
+    <div id="die2"> Die2 </div>
+    <div><button id="startButton" onClick="startGame()"> Start </button></div>
+
+    <div id="dieResults"> Die Results </div>
+</div>
+
+<p>Roll the Dice </p>
+
+</body>
+</html>

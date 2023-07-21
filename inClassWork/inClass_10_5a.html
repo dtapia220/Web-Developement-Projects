@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function validate(){
+            alert("Clicked")
+            let age = document.getElementById("in1");
+            if(age.valueOf >= 18){
+                alert("Ok your old enough!")
+                return true
+            } else {
+                alert("Sorry not old enough")
+                return false
+            }
+        }
+        function validate2(){
+            alert("V2")
+            //radio come into js as a list (array)
+            //grab the radio object
+            //
+            // rad -> radio button group(in form my form with name 'contact'
+            let rad = document.myForm.contact;
+            let one = rad[0].checked;
+            let two = rad[1].checked;
+            console.log(`one:${one} two:${two}`)
+
+            let checkRad = getRadioChecked(rad);
+            console.log(`Rad Value:${checkRad}`);
+            return false;
+        }
+        function getRadioChecked(theRad){
+            //return the value of the checked radio button
+            // or return false if the name are checked
+            let nButtons = theRad.length; // How many radio button in the group
+            for( let i=0; i<nButtons; i++ ){
+                if ( theRad[i].checked ){
+                    return theRad[i].value;
+                }
+            }
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+<form action="someplace.html" method="post" onsubmit="return validate2()">
+    Age:<input type="number" id="in1">
+    <br> Contact You: Yes:<input type="radio" name="contact" value="Y"/>
+                  No: <input type="radio" name="contact" value="N" checked/>
+
+    <input type="submit"/>
+</form>
+<div id="results"> Your results here</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+         $("#button1").click( function (){
+             alert("Text:" +  $("#myArea").text() );
+             $("#myArea").text("<b> Goodbye </b> Partner");
+
+         })
+            $("#button2").click( function (){
+                alert("HTML:" +  $("#myArea").html() );
+                $("#myArea").html("<b> Hello There </b> Partner");
+
+            })
+        })
+ </script>
+
+        </head>
+<body>
+<div id="myArea">
+    Lorem ipsum dolor <b> sit amet, </b> consectetur adipisicing elit.
+    Alias eos magni officiis praesentium sunt. Quaerat.
+</div>
+<button type="button" id="button1"> Show TExt </button>
+<button type="button" id="button2"> Show HTML </button>
+<div id="results">
+
+</div>
+</body>
+</html>
